@@ -1,0 +1,14 @@
+services\HeroServiceImpl.class
+models\Hero$HeroBuilder.class
+models\Hero.class
+services\HeroService.class
+servlets\HeroAddingServlet.class
+repositories\AbilityRepositoryImpl.class
+repositories\HeroRepositoryImpl.class
+repositories\CrudRepository.class
+repositories\AbilityRepository.class
+repositories\HeroRepository.class
+servlets\MainPageServlet.class
+models\Ability.class
+config\ConnectionConfig.class
+models\Ability$AbilityBuilder.class

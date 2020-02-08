@@ -1,0 +1,106 @@
+textarea {
+    resize: none;
+}
+
+* {
+    outline: none;
+}
+
+.search {
+    width: 100%;
+    height: 50px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border: 2px black solid;
+    padding: 5px 15px;
+    font-size: 20px;
+}
+.search:scope {
+    border: none;
+}
+
+header {
+    padding: 20px   ;
+}
+
+header form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.search-button {
+    height: 50px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+    /*border: 2px black solid;*/
+    width: 100%;
+}
+
+.filter-button {
+    height: 50px;
+    margin: 20px 0;
+}
+
+
+.submit-container {
+    width: 15%;
+    margin-top: 20px;
+
+}
+
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-box {
+    width: 85%;
+    margin: 20px 0;
+}
+
+.filter-container {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px black solid;
+    margin-top: 20px;
+    display: none;
+
+}
+
+.number-chars {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 ;
+}
+.filter-container input {
+    width: 33%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.text-select-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-select-container textarea {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.text-select-container select {
+    width: 100%;
+    height: 100%;
+}
+
+
+

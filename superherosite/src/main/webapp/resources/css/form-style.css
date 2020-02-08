@@ -1,0 +1,106 @@
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.cart form{
+    margin: 0 auto;
+}
+
+.cart input, textarea, select {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.cart textarea {
+    resize: none;
+    height: 100px;
+}
+
+.button-wrapper {
+    position: relative;
+    width: 150px;
+    text-align: center;
+    margin: 25px auto;
+}
+
+.button-wrapper span.label {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    width: 100%;
+    background: green;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 0;
+    text-transform:uppercase;
+    font-size:12px;
+    border-radius: 5px;
+}
+
+#upload {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.select_container option{
+    border: 2px green solid;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 4px;
+}
+.select_container option:active {
+    background-color: green;
+}
+
+.button-submit input {
+    color: white;
+    width: 100%;
+    height: 50px;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+}
+
+.hero_name input, .hero_description textarea {
+    border-radius: 5px;
+    padding: 4px;
+    border: 2px green solid;
+}

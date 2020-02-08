@@ -1,0 +1,94 @@
+<style type="text/css">
+                      .in-container {
+                          height: 100%;
+                          width: 100%;
+                          margin: 20px 0;
+                      }
+
+.in-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hero_name {
+    font-size: 30px;
+}
+
+.hero_description {
+    font-size: 20px;
+}
+
+.feature_container {
+    margin: 20px 0;
+}
+
+.feature_scale_container {
+    border: 2px green solid;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+}
+
+.feature {
+    margin: 10px 0;
+}
+
+.scale {
+    height: 100%;
+    background-color: green;
+}
+
+.ability_container {
+    margin: 20px 0;
+}
+
+.ability {
+    border-radius: 5px;
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.ability_name {
+    color: white;
+    text-transform: uppercase;
+}
+
+.button_container {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.button{
+    border-radius: 5px;
+    margin: 5px 10px;
+
+    text-align: center;
+    color: white;
+    width: 45%;
+}
+
+.button div {
+    padding: 10px;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+
+.button_delete {
+    background-color: red;
+}
+
+.button_edit {
+    background-color: green;
+}
+
+
+</style>
+
