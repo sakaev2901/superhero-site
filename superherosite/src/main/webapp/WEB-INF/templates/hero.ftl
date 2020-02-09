@@ -22,7 +22,7 @@
 <div class="main-container col-9">
     <div class="cart">
         <div class="in-container col-6">
-            <img src="..\resources\uploads\${hero.getPhotoPath()}">
+            <img src="..\uploads\${hero.getPhotoPath()}">
         </div>
         <div class="in-container col-6">
             <div class="hero_name">
@@ -34,7 +34,7 @@
             <div class="feature_container">
                 <div class="feature">
                     <div class="feature_name">
-                        Сила
+                        Сила - ${hero.getPower()}
                     </div>
                     <div class="feature_scale_container">
                         <div class="scale" style="width: ${hero.getPower()}%">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="feature">
                     <div class="feature_name">
-                        Выносливость
+                        Выносливость - ${hero.getEndurance()}
                     </div>
                     <div class="feature_scale_container">
                         <div class="scale" style="width: ${hero.getEndurance()}%">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="feature">
                     <div class="feature_name">
-                        Ловкость
+                        Ловкость - ${hero.getDexterity()}
                     </div>
                     <div class="feature_scale_container">
                         <div class="scale" style="width: ${hero.getDexterity()}%">
@@ -68,7 +68,7 @@
                    <#assign abilities = hero.getAbilities()>
                         <#list abilities as ability>
                             <div class="ability">
-                                <div class="ability_name">
+                                <div class="ability_name" title="${ability.getDescription()}">
                                     ${ability.getName()}
                                 </div>
                             </div>

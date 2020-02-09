@@ -12,14 +12,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Hero {
+public class Hero implements Comparable<Hero> {
     private Long id;
     private String name;
     private String description;
     private Integer power;
     private Integer endurance;
     private Integer dexterity;
-    private List<Ability> abilities;
+    private List<Ability> abilities = new LinkedList<>();
     private String photoPath;
 
     public void addAbility(Ability ability) {
@@ -29,4 +29,8 @@ public class Hero {
         this.abilities.add(ability);
     }
 
+    @Override
+    public int compareTo(Hero o) {
+        return (int)(id - o.id);
+    }
 }

@@ -1,3 +1,5 @@
+
+
 <style type="text/css">
                       * {
                           font-family: Geneva, Arial, Helvetica, sans-serif;
@@ -54,9 +56,9 @@ header {
     /*background-color: #60002d;*/
     padding-left: 0px !important;
     padding-right: 0px !important;
-    padding-top: 30px;
     background-image: url("/img/b2.png");
     background-color: yellow;
+    padding-top: 20px;
 }
 
 .carts_container {
@@ -92,6 +94,9 @@ header {
 .info_container {
     height: 100%;
     display: table;
+    width: 100%;
+    max-width: 100%;
+
 }
 
 .pic {
@@ -111,13 +116,21 @@ header {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 10px;
+
 }
 
 .text_container {
     display: table-cell;
     vertical-align: middle;
-
+    flex-direction: row;
+    text-overflow: ellipsis;
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    overflow-x:hidden;
+    max-width: 105px;
 }
+
+
 
 
 

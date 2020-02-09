@@ -70,13 +70,15 @@
                         <textarea name="description" placeholder="Описание Героя"></textarea>
                     </div>
                     <div class="select_container col-6">
-                        <select multiple size="5">
+                        <select multiple size="5" name="abilities">
                             <option disabled>
                                 Выберите способности вашего героя
                             </option>
-                            <option>
-                                Нет способностей
-                            </option>
+                            <#list abilities as ability>
+                                <option title="${ability.getDescription()}">
+                                    ${ability.getName()}
+                                </option>
+                            </#list>
                         </select>
                     </div>
                 </div>
@@ -115,23 +117,9 @@
 
                     </div>
                 </div>
-
-                <!--                <div class="col-6">-->
-                <!--                    <div class="select_container">-->
-                <!--                        <select multiple size="5">-->
-                <!--                            <option disabled>-->
-                <!--                                Выберите способности вашего героя-->
-                <!--                            </option>-->
-                <!--                            <option>-->
-                <!--                                Нет способностей-->
-                <!--                            </option>-->
-                <!--                        </select>-->
-                <!--                    </div>-->
-                <!--                </div>-->
             </div>
         </form>
     </div>
-    <!--    <img src="img/b2.png">-->
 </header>
 <div class="main-container col-9">
     <div class="carts_container col-11">
@@ -141,12 +129,12 @@
                     <div class="cart col-10 offset-1">
                         <div class="pic_container col-6">
                             <div class="pic">
-                                <img src="resources\uploads\${hero.getPhotoPath()}">
+                                <img src="uploads\${hero.getPhotoPath()}">
                             </div>
                         </div>
                         <div class="info_container col-6">
                             <div class="text_container">
-                                <div class="hero_name">
+                                <div class="hero_name" style="text-overflow: clip;overflow: hidden;">
                                     ${hero.getName()}
                                 </div>
                                 <div class="hero_description">

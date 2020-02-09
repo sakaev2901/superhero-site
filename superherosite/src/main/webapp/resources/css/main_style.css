@@ -90,6 +90,9 @@ header {
 .info_container {
     height: 100%;
     display: table;
+    width: 100%;
+    max-width: 100%;
+
 }
 
 .pic {
@@ -109,12 +112,18 @@ header {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 10px;
+
 }
 
 .text_container {
     display: table-cell;
     vertical-align: middle;
-
+    flex-direction: row;
+    text-overflow: ellipsis;
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    overflow-x:hidden;
+    max-width: 105px;
 }
 
 

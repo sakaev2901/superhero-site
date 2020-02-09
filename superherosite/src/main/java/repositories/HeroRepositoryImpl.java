@@ -22,8 +22,8 @@ public class HeroRepositoryImpl implements HeroRepository {
     private final static String FIND_BY_CRITERIA_WITHOUT_ABILITIES = "SELECT * FROM hero WHERE hero.power >= ? AND hero.power <= ? " +
             "AND hero.endurance >= ? AND hero.endurance <= ? " +
             "AND hero.dexterity >= ? AND hero.dexterity <= ?";
-    private final static String UPDATE = "UPDATE hero SET hero.name = ?, hero.description = ?, hero.power = ?, " +
-            "hero.endurance = ?, hero.dexterity = ?, hero.photo_path = ? WHERE hero.id = ?";
+    private final static String UPDATE = "UPDATE hero SET \"name\" = ?, \"description\" = ?, \"power\" = ?, " +
+            "\"endurance\" = ?, \"dexterity\" = ? WHERE \"id\" = ?";
     private final static String DELETE_HERO_ABILITIES = "DELETE FROM hero_ability WHERE hero_id = ?";
 
     private Connection connection = null;
@@ -78,6 +78,7 @@ public class HeroRepositoryImpl implements HeroRepository {
                     .endurance(set.getInt("endurance"))
                     .dexterity(set.getInt("dexterity"))
                     .photoPath(set.getString("photo_path"))
+                    .abilities(new LinkedList<>())
                     .build();
         statement = connection.prepareStatement(FIND_HERO_ABILITIES);
         statement.setLong(1, hero.getId());
@@ -116,12 +117,17 @@ public class HeroRepositoryImpl implements HeroRepository {
             statement.setInt(3, model.getPower());
             statement.setInt(4, model.getEndurance());
             statement.setInt(5, model.getDexterity());
-            statement.setString(6, model.getPhotoPath());
-            statement.setLong(7, model.getId());
+            statement.setLong(6, model.getId());
             statement.executeUpdate();
             statement = connection.prepareStatement(DELETE_HERO_ABILITIES);
             statement.setLong(1, model.getId());
             statement.executeUpdate();
+            if (model.getPhotoPath() != null) {
+                statement = connection.prepareStatement("UPDATE hero SET \"photo_path\" = ? WHERE \"id\" = ?");
+                statement.setString(1, model.getPhotoPath());
+                statement.setLong(2, model.getId());
+                statement.executeUpdate();
+            }
             statement = connection.prepareStatement(HERO_ABILITY_BINDING);
             List<Ability> abilities = model.getAbilities();
             for (Ability ability:

@@ -22,8 +22,6 @@
   <servlet>
     <servlet-name>freemarker</servlet-name>
     <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
-
-
     <init-param>
       <param-name>object_wrapper</param-name>
       <param-value>DefaultObjectWrapper(2.3.27)</param-value>
@@ -75,6 +73,10 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
 
+    <context-param>
+      <param-name>UploadPath</param-name>
+      <param-value>/resources/uploads/</param-value>
+    </context-param>
   <servlet-mapping>
     <servlet-name>freemarker</servlet-name>
     <url-pattern>*.ftl</url-pattern>

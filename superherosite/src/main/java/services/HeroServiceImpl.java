@@ -25,6 +25,9 @@ public class HeroServiceImpl implements HeroService<HttpServletRequest> {
     private AbilityRepository abilityRepository;
     private HttpServletRequest request;
     private Hero hero;
+    private List<Hero> heroes;
+    private List<Ability> criteriaAbilities;
+
 
     public HeroServiceImpl() {
         heroRepository = new HeroRepositoryImpl();
@@ -69,22 +72,14 @@ public class HeroServiceImpl implements HeroService<HttpServletRequest> {
     private void saveImage() {
         try {
             Part photo = request.getPart("photo");
-//            String localdir = System.getProperty("catalina.home") + File.separator + "uploads";
-            String[] a = request.getServletContext().getRealPath("/").split("\\\\");
-            String b = "";
-            for (int i = 0; i < a.length - 2; i++) {
-                b += a[i] + "\\";
-            }
-            b += "src\\main\\webapp\\resources\\";
-            System.out.println(b);
-            String localdir = b + "uploads";
+            String localdir = request.getServletContext().getRealPath("") + File.separator +  "uploads";
             File dir = new File(localdir);
             if (!dir.exists()) {
                 dir.mkdir();
             }
             String[] filename_data = photo.getSubmittedFileName().split("\\.");
             String filename = Math.random() + "." + filename_data[filename_data.length - 1];
-            if (!filename.equals("")) {
+            if (!filename_data[filename_data.length - 1].equals("")) {
                 String fullpath = localdir + File.separator + filename;
                 photo.write(fullpath);
                 hero.setPhotoPath(filename);
@@ -143,11 +138,11 @@ public class HeroServiceImpl implements HeroService<HttpServletRequest> {
         Integer dexterityFrom = Integer.parseInt(Optional.ofNullable(this.request.getParameter("dexterityFrom")).orElse("1"));
         Integer dexterityTo = Integer.parseInt(Optional.ofNullable(this.request.getParameter("dexterityTo")).orElse("100"));
         String[] abilitiesArray = this.request.getParameterValues("abilities");
-        LinkedList<Ability> abilities = new LinkedList<>();
+        criteriaAbilities = new LinkedList<>();
         if (abilitiesArray != null)  {
             for (String abilityName :
                     abilitiesArray) {
-                abilities.add(abilityRepository.findByName(abilityName));
+                criteriaAbilities.add(abilityRepository.findByName(abilityName));
             }
         }
         SearchCriteria searchCriteria = SearchCriteria.builder()
@@ -160,7 +155,33 @@ public class HeroServiceImpl implements HeroService<HttpServletRequest> {
                 .dexterityFrom(dexterityFrom)
                 .dexterityTo(dexterityTo)
                 .build();
-        return heroRepository.findByCriteria(searchCriteria);
+        heroes = heroRepository.findByCriteria(searchCriteria);
+        checkHeroAbilitiesWithCriteria();
+        return heroes;
+    }
+
+    private void checkHeroAbilitiesWithCriteria() {
+        heroes.removeIf(hero -> !isCriteriaAbilitiesIn(hero.getAbilities()));
+    }
+
+    private boolean isCriteriaAbilitiesIn(List<Ability> heroAbilities) {
+        for (Ability ability:
+             criteriaAbilities) {
+            if (!isAbilitiesContains(heroAbilities, ability)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isAbilitiesContains(List<Ability> heroAbilities, Ability ability) {
+        for (Ability heroAbility:
+             heroAbilities) {
+            if(ability.equals(heroAbility)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

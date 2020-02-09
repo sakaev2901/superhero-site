@@ -30,10 +30,10 @@
 
             </div>
             <div class="hero_name">
-                <input type="text" placeholder="Имя Героя" name="name">
+                <input required type="text" placeholder="Имя Героя" name="name">
             </div>
             <div class="hero_description">
-                <textarea name="description" placeholder="Описание Героя"></textarea>
+                <textarea required name="description" placeholder="Описание Героя"></textarea>
             </div>
             <div class="slidecontainer">
                 <p>
@@ -63,9 +63,11 @@
                     <option disabled>
                         Выберите способности вашего героя
                     </option>
-                    <option selected>
-                        Нет способностей
-                    </option>
+                    <#list abilities as ability>
+                        <option title="${ability.getDescription()}">
+                            ${ability.getName()}
+                        </option>
+                    </#list>
                 </select>
             </div>
             <div class="button-submit">
