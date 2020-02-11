@@ -62,11 +62,11 @@
                     </option>
                     <#list abilities as ability>
                         <#if ability.getHeroAbilityFlag() == 1>
-                            <option selected title="${ability.getDescription()}">
+                            <option selected title="${ability.getAbility().getDescription()}">
                                 ${ability.getAbility().getName()}
                             </option>
                         <#else>
-                            <option title="${ability.getDescription()}">
+                            <option title="${ability.getAbility().getDescription()}">
                                 ${ability.getAbility().getName()}
                             </option>
                         </#if>

@@ -188,11 +188,11 @@ public class HeroRepositoryImpl implements HeroRepository {
                 sql = FIND_BY_CRITERIA_WITHOUT_ABILITIES + " AND hero.name <> ? AND hero.description = ?";
             }
             if (!criteria.getName().equals("") && criteria.getDescription().equals("")) {
-                sql = FIND_BY_CRITERIA_WITHOUT_ABILITIES + " AND hero.name = ? AND hero.description <> ?";
+                sql = FIND_BY_CRITERIA_WITHOUT_ABILITIES + " AND hero.name ILIKE '%'||?||'%' AND hero.description <> ?";
 
             }
             if (!criteria.getName().equals("") && !criteria.getDescription().equals("")) {
-                sql = FIND_BY_CRITERIA_WITHOUT_ABILITIES + " AND hero.name = ? AND hero.description = ?";
+                sql = FIND_BY_CRITERIA_WITHOUT_ABILITIES + " AND hero.name ILIKE '%'||?||'%' AND hero.description like ?";
 
             }
             statement = connection.prepareStatement(sql);
